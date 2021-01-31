@@ -17,6 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
 
+const pageRoutes = require("./routes/page");
+
+app.use("/", pageRoutes);
 
 mongoose
   .connect(process.env.MONGO, {
